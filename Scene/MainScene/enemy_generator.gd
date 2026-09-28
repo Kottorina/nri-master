@@ -38,6 +38,12 @@ func GenerateEnemy(enemy : Enemy) -> void:
 		if armor_dict.has(armor_name):
 			enemy_armor = armor_dict[armor_name]
 	
+	new_enemy.Strength = str(RollInt(new_enemy.Strength))
+	new_enemy.Dexterity = str(RollInt(new_enemy.Dexterity))
+	new_enemy.Stamina = str(RollInt(new_enemy.Stamina))
+	
+	new_enemy.Experience = str(RollInt(new_enemy.Experience))
+	
 	new_enemy.current_ht = RollInt(new_enemy.Hp)
 	
 	exists_unit_manager.AddNewUnit(new_enemy,enemy_weapon,enemy_armor)

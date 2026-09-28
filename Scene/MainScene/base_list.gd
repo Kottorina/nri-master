@@ -1,5 +1,7 @@
 extends MarginContainer
 
+@export var ConsoleSignal : Signal 
+
 @export var main_cell : PackedScene
 @export var base_parent : BoxContainer
 
@@ -11,5 +13,6 @@ func AddNewUnit(unit : Enemy, weapon : Weapon = null, armor : Armor = null) -> v
 	var unit_ui_scene = UnitUiScene.instantiate()
 	UnitListContainer.add_child(unit_ui_scene)
 	
+	unit_ui_scene.ConsoleSignal = ConsoleSignal
 	unit_ui_scene.MakeUi(unit,weapon,armor)
 	

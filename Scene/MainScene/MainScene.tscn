@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://b5jfjfdmd6r0l" path="res://Old/base.tres" id="5_td1bq"]
 [ext_resource type="Script" uid="uid://b08p4cjstyar7" path="res://Scene/MainScene/base_list.gd" id="6_csmcm"]
 [ext_resource type="PackedScene" uid="uid://c12snpfpnullr" path="res://Scene/MainScene/unit_ui_scene.tscn" id="7_xdarn"]
+[ext_resource type="Script" uid="uid://cstp3m07d6yqv" path="res://Scene/MainScene/console.gd" id="8_csmcm"]
 
 [node name="MainScene" type="Control" unique_id=2075305943]
 layout_mode = 3
@@ -65,7 +66,7 @@ gen_but = NodePath(".")
 script = ExtResource("1_5xe81")
 system_option_but = NodePath("../MarginContainer/HBoxContainer/SystemOptionBut")
 open_but = NodePath("../MarginContainer/HBoxContainer/OpenBut")
-cvs_path = "C:\\dew\\game_project\\NriMaster\\Tbo - enemy_weapon.csv"
+tsv_path = "res://BaseData/Tbo - enemy_weapon.tsv"
 game_ui_container = NodePath("../../MainGame")
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1658834309]
@@ -122,6 +123,25 @@ horizontal_scroll_mode = 0
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MainGame/ExistsUnitManager/ScrollContainer" unique_id=1523482810]
 layout_mode = 2
 size_flags_horizontal = 0
+
+[node name="Console" type="MarginContainer" parent="VBoxContainer/MainGame" unique_id=1731764584 node_paths=PackedStringArray("node_with_console_signal", "console_cont")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("8_csmcm")
+node_with_console_signal = [NodePath("../ExistsUnitManager"), NodePath("../../Up/MarginContainer/HBoxContainer/Button")]
+console_cont = NodePath("ConsoleCont")
+
+[node name="ConsoleCont" type="VBoxContainer" parent="VBoxContainer/MainGame/Console" unique_id=1580179253]
+layout_mode = 2
+
+[node name="name" type="Label" parent="VBoxContainer/MainGame/Console/ConsoleCont" unique_id=559467375]
+layout_mode = 2
+text = "Console:"
 
 [node name="EnemyGenerator" type="Node" parent="VBoxContainer" unique_id=698790898 node_paths=PackedStringArray("exists_unit_manager")]
 script = ExtResource("5_n5mlf")

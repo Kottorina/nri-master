@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b3i8xntp403ii" path="res://Old/main_list_cell.gd" id="1_14k5v"]
 [ext_resource type="Theme" uid="uid://dnayb1p6chlt0" path="res://Old/base_main_list.tres" id="1_q2dss"]
 
-[node name="main_list_cell" type="MarginContainer" unique_id=477535060 node_paths=PackedStringArray("name_", "hp_", "strong_", "dexterity_", "stamina_", "experience_", "weapon_cont", "weapon_del_but", "weapon_name_lab", "weapon_type_lab", "weapon_distance_lab", "weapon_radius_effect_lab", "get_damage_but", "armor_cont", "armor_del_but", "GetDamageResistBut", "damage_", "delete_but")]
+[node name="main_list_cell" type="MarginContainer" unique_id=477535060 node_paths=PackedStringArray("name_", "hp_", "strong_", "dexterity_", "stamina_", "experience_", "weapon_cont", "weapon_del_but", "weapon_name_lab", "weapon_type_lab", "weapon_distance_lab", "weapon_radius_effect_lab", "get_damage_but", "armor_cont", "armor_del_but", "armor_name_lab", "GetDamageResistBut", "damage_", "delete_but")]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -36,6 +36,7 @@ weapon_radius_effect_lab = NodePath("VBoxContainer/WeaponData/RadiusEffect/Radiu
 get_damage_but = NodePath("VBoxContainer/WeaponData/GetDamage")
 armor_cont = NodePath("VBoxContainer/ArmorData")
 armor_del_but = NodePath("VBoxContainer/ArmorData/del")
+armor_name_lab = NodePath("VBoxContainer/ArmorData/Name/NameLab")
 GetDamageResistBut = NodePath("VBoxContainer/ArmorData/GetArmor")
 damage_ = NodePath("VBoxContainer/UnitData/DamageLineEdit")
 delete_but = NodePath("VBoxContainer/UnitData/del")
@@ -216,6 +217,16 @@ text = "Удалить"
 [node name="ArmorData" type="HBoxContainer" parent="VBoxContainer" unique_id=1729017303]
 layout_mode = 2
 size_flags_horizontal = 8
+
+[node name="Name" type="VBoxContainer" parent="VBoxContainer/ArmorData" unique_id=1490392423]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ArmorData/Name" unique_id=314847631]
+layout_mode = 2
+text = "Name:"
+
+[node name="NameLab" type="Label" parent="VBoxContainer/ArmorData/Name" unique_id=530510217]
+layout_mode = 2
 
 [node name="GetArmor" type="Button" parent="VBoxContainer/ArmorData" unique_id=1480112834]
 layout_mode = 2

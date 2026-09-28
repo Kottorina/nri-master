@@ -1,5 +1,7 @@
 extends Control
 
+@export var ConsoleSignal : Signal 
+
 @export var gen_but : Button
 func _ready() -> void:
 	gen_but.pressed.connect(gen_new_name)
@@ -22,7 +24,13 @@ var nickname = ["Икарн","Карлик","Медный Ворон","Паро�
 func gen_new_name() -> void:
 	var f_p = nickname[rnd.randi_range(0,nickname.size()-1)]
 	if rnd.randi_range(0,1) == 1:
-		print(f_name_0[rnd.randi_range(0,f_name_0.size()-1)]," ",s_name_0[rnd.randi_range(0,s_name_0.size()-1)]," ",f_p)
+		var data_0 = f_name_0[rnd.randi_range(0,f_name_0.size()-1)]
+		var data_1 = s_name_0[rnd.randi_range(0,s_name_0.size()-1)]
+		var data_2 = f_p
+		ConsoleSignal.emit("Character: "+str(data_0," ",data_1," ",data_2))
 		
 	else:
-		print(f_name_1[rnd.randi_range(0,f_name_1.size()-1)]," ",s_name_1[rnd.randi_range(0,s_name_1.size()-1)]," ",f_p)
+		var data_0 = f_name_1[rnd.randi_range(0,f_name_1.size()-1)]
+		var data_1 = s_name_1[rnd.randi_range(0,s_name_1.size()-1)]
+		var data_2 = f_p
+		ConsoleSignal.emit("Character: "+str(data_0," ",data_1," ",data_2))

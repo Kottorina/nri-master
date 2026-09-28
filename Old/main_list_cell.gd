@@ -1,5 +1,7 @@
 extends MarginContainer
 
+@export var ConsoleSignal : Signal 
+
 @export_group("unit")
 @export var name_ : Label
 @export var hp_ : Label
@@ -24,6 +26,8 @@ extends MarginContainer
 
 @export var armor_cont : Container
 @export var armor_del_but : Button
+
+@export var armor_name_lab: Label
 
 @export var GetDamageResistBut : Button
 
@@ -75,6 +79,8 @@ func MakeUi( unit_ : Enemy, weapon : Weapon = null, armor : Armor = null):
 	if armor != null:
 		armor_cont.show()
 		
+		armor_name_lab.text = armor.Name
+		
 		GetDamageResistBut.pressed.connect(RollInt.bind(armor.DamageResist))
 		armor_del_but.pressed.connect(armor_cont.queue_free)
 
@@ -91,6 +97,6 @@ func RollInt(value: String) -> int:
 		else:
 			result += int(part)
 	
-	print(result)
-	
+	ConsoleSignal.emit("Roll: "+str(result))
+
 	return result

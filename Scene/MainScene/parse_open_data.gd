@@ -3,8 +3,8 @@ extends Node
 @export var system_option_but : OptionButton
 @export var open_but : Button
 
-@export var cvs_path : String
-
+@export var tsv_path : String 
+ 
 @export var game_ui_container : Control
 
 func _ready() -> void:
@@ -23,15 +23,22 @@ func OpenCvcData() -> void:
 	
 	if ! system_option_but.get_selected_id() == 0:
 		return
+
+	var file := FileAccess.open(tsv_path, FileAccess.READ)
 	
-	var file = FileAccess.open(cvs_path, FileAccess.READ)
+	print(tsv_path," - path")
 	if file == null:
-		push_warning("cvs_path data is empty")
+		push_error(
+			"OPEN FAILED\n" +
+			"Path: " + tsv_path + "\n" +
+			"Exists: " + str(FileAccess.file_exists(tsv_path)) + "\n" +
+			"Error: " + str(FileAccess.get_open_error())
+		)
 		return
 	
 	var all_row : Array
 	while not file.eof_reached():
-		all_row.append(file.get_csv_line())
+		all_row.append(file.get_csv_line("\t"))
 	
 	var parse_data_dict : Dictionary
 	

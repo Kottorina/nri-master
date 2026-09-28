@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://c12snpfpnullr"]
+
+[ext_resource type="Script" uid="uid://b3i8xntp403ii" path="res://main_list_cell.gd" id="1_14k5v"]
+[ext_resource type="Theme" uid="uid://dnayb1p6chlt0" path="res://base_main_list.tres" id="1_q2dss"]
+
+[node name="main_list_cell" type="MarginContainer" unique_id=477535060 node_paths=PackedStringArray("name_", "hp_", "damage_text", "strong_", "dexterity_", "endurance_", "damage_but", "damage_", "delete_but")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q2dss")
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+script = ExtResource("1_14k5v")
+name_ = NodePath("changer_unit/name/TextEdit")
+hp_ = NodePath("changer_unit/hp/TextEdit")
+damage_text = NodePath("changer_unit/damage2/TextEdit")
+strong_ = NodePath("changer_unit/strong/TextEdit")
+dexterity_ = NodePath("changer_unit/Dexterity/TextEdit")
+endurance_ = NodePath("changer_unit/endurance/TextEdit")
+damage_but = NodePath("changer_unit/damage/Label")
+damage_ = NodePath("changer_unit/damage/TextEdit")
+delete_but = NodePath("changer_unit/del")
+
+[node name="changer_unit" type="HBoxContainer" parent="." unique_id=1217559841]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="HBoxContainer" parent="changer_unit" unique_id=1042877694]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="changer_unit/name" unique_id=24411953]
+layout_mode = 2
+text = "Имя / Метка:"
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="changer_unit/name" unique_id=1993470749]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Имя..."
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="hp" type="HBoxContainer" parent="changer_unit" unique_id=174614125]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="changer_unit/hp" unique_id=132539401]
+layout_mode = 2
+text = "Здоровье:"
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="changer_unit/hp" unique_id=327730846]
+layout_mode = 2
+placeholder_text = "Хп..."
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="damage2" type="HBoxContainer" parent="changer_unit" unique_id=1780573556]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="changer_unit/damage2" unique_id=659096341]
+layout_mode = 2
+text = "Урон:"
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="changer_unit/damage2" unique_id=1225253539]
+layout_mode = 2
+placeholder_text = "Хп..."
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="strong" type="HBoxContainer" parent="changer_unit" unique_id=1356226111]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="changer_unit/strong" unique_id=1416564577]
+layout_mode = 2
+text = "Сила:"
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="changer_unit/strong" unique_id=770941900]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Сила..."
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="Dexterity" type="HBoxContainer" parent="changer_unit" unique_id=1777925760]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="changer_unit/Dexterity" unique_id=386601931]
+layout_mode = 2
+text = "Ловкость:"
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="changer_unit/Dexterity" unique_id=2016194576]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Ловкость..."
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="endurance" type="HBoxContainer" parent="changer_unit" unique_id=1748382969]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="changer_unit/endurance" unique_id=1870542260]
+layout_mode = 2
+text = "Выдержка:"
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="changer_unit/endurance" unique_id=1273947773]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Выдержка..."
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="damage" type="VBoxContainer" parent="changer_unit" unique_id=1565245199]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 1
+
+[node name="Label" type="Button" parent="changer_unit/damage" unique_id=853551543]
+layout_mode = 2
+text = "Нанести урон:"
+
+[node name="TextEdit" type="LineEdit" parent="changer_unit/damage" unique_id=1887817436]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Выдержка..."
+
+[node name="VSeparator" type="VSeparator" parent="changer_unit" unique_id=864683441]
+layout_mode = 2
+
+[node name="del" type="Button" parent="changer_unit" unique_id=1492540542]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Удалить"

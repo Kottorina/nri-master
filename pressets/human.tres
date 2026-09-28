@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Presset" format=3 uid="uid://cwmakyua5f00"]
+
+[ext_resource type="Script" uid="uid://bg7otgj420uwd" path="res://presset_class.gd" id="1_8w3cv"]
+
+[resource]
+script = ExtResource("1_8w3cv")
+name = "Человек"
+hp = 5
+damage = 6
+is_rand = true
+rand_hp = 3
+Strong_rand = 2
+Dexterity_rand = 2
+Excerpt_rand = 2
+metadata/_custom_type_script = "uid://bg7otgj420uwd"

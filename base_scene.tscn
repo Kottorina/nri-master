@@ -1,0 +1,205 @@
+[gd_scene format=3 uid="uid://jlo4cnvn31pf"]
+
+[ext_resource type="Theme" uid="uid://b5jfjfdmd6r0l" path="res://base.tres" id="1_57xsf"]
+[ext_resource type="Script" uid="uid://b08p4cjstyar7" path="res://base_list.gd" id="2_oqo0w"]
+[ext_resource type="Script" uid="uid://oup3dotujcdx" path="res://presset_loader.gd" id="2_qcxwf"]
+[ext_resource type="Resource" uid="uid://bbgainajvok48" path="res://pressets/base_list.tres" id="3_2puwf"]
+[ext_resource type="PackedScene" uid="uid://c12snpfpnullr" path="res://main_list_cell.tscn" id="3_21qnn"]
+[ext_resource type="Script" uid="uid://kj4hbxn7gx17" path="res://changer_unit.gd" id="4_vjcsa"]
+[ext_resource type="Script" uid="uid://ctnmpthmp6thk" path="res://gen_name.gd" id="7_anra8"]
+
+[node name="BaseScene" type="Node2D" unique_id=811347420]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1315931630]
+
+[node name="base_list" type="MarginContainer" parent="CanvasLayer" unique_id=131938669 node_paths=PackedStringArray("base_parent")]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_57xsf")
+theme_override_constants/margin_right = 10
+script = ExtResource("2_oqo0w")
+main_cell = ExtResource("3_21qnn")
+base_parent = NodePath("ScrollContainer/VBoxContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/base_list" unique_id=2029173832]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/base_list/ScrollContainer" unique_id=1460515339]
+layout_mode = 2
+
+[node name="left" type="MarginContainer" parent="CanvasLayer" unique_id=1651918413]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -235.0
+offset_right = 258.0
+offset_bottom = 235.0
+grow_vertical = 2
+theme = ExtResource("1_57xsf")
+theme_override_constants/margin_left = 10
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/left" unique_id=1364024062]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="presset_loader" type="VBoxContainer" parent="CanvasLayer/left/HBoxContainer" unique_id=444031116 node_paths=PackedStringArray("option_but", "change_but", "add_but", "change_menu", "base_list")]
+layout_mode = 2
+size_flags_horizontal = 0
+script = ExtResource("2_qcxwf")
+base_pressset = ExtResource("3_2puwf")
+option_but = NodePath("OptionButton")
+change_but = NodePath("change")
+add_but = NodePath("add")
+change_menu = NodePath("../changer_unit")
+base_list = NodePath("../../../base_list")
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/left/HBoxContainer/presset_loader" unique_id=381729914]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="change" type="Button" parent="CanvasLayer/left/HBoxContainer/presset_loader" unique_id=1728266368]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Изменить перед добавлением"
+
+[node name="add" type="Button" parent="CanvasLayer/left/HBoxContainer/presset_loader" unique_id=296486195]
+layout_mode = 2
+text = "Добавить сразу"
+
+[node name="VSeparator2" type="HSeparator" parent="CanvasLayer/left/HBoxContainer" unique_id=754345233]
+layout_mode = 2
+
+[node name="changer_unit" type="VBoxContainer" parent="CanvasLayer/left/HBoxContainer" unique_id=1855389771 node_paths=PackedStringArray("name_", "hp_", "strong_", "dexterity_", "excerpt", "add_but", "base_list")]
+layout_mode = 2
+size_flags_horizontal = 0
+script = ExtResource("4_vjcsa")
+name_ = NodePath("name/TextEdit")
+hp_ = NodePath("hp/TextEdit")
+strong_ = NodePath("strong/TextEdit")
+dexterity_ = NodePath("Dexterity/TextEdit")
+excerpt = NodePath("excerpt/TextEdit")
+add_but = NodePath("add")
+base_list = NodePath("../../../base_list")
+
+[node name="name" type="VBoxContainer" parent="CanvasLayer/left/HBoxContainer/changer_unit" unique_id=425726246]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/left/HBoxContainer/changer_unit/name" unique_id=514435647]
+layout_mode = 2
+text = "Имя / Метка:"
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/left/HBoxContainer/changer_unit/name" unique_id=1890860271]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Имя..."
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="hp" type="VBoxContainer" parent="CanvasLayer/left/HBoxContainer/changer_unit" unique_id=1071699848]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/left/HBoxContainer/changer_unit/hp" unique_id=1461431067]
+layout_mode = 2
+text = "Здоровье:"
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/left/HBoxContainer/changer_unit/hp" unique_id=1462389349]
+layout_mode = 2
+placeholder_text = "Хп..."
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="damage" type="VBoxContainer" parent="CanvasLayer/left/HBoxContainer/changer_unit" unique_id=44912698]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/left/HBoxContainer/changer_unit/damage" unique_id=1519875359]
+layout_mode = 2
+text = "Урон:"
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/left/HBoxContainer/changer_unit/damage" unique_id=1124100540]
+layout_mode = 2
+placeholder_text = "Хп..."
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="strong" type="VBoxContainer" parent="CanvasLayer/left/HBoxContainer/changer_unit" unique_id=247847543]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/left/HBoxContainer/changer_unit/strong" unique_id=806702046]
+layout_mode = 2
+text = "Сила:"
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/left/HBoxContainer/changer_unit/strong" unique_id=849046007]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Сила..."
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="Dexterity" type="VBoxContainer" parent="CanvasLayer/left/HBoxContainer/changer_unit" unique_id=753433900]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/left/HBoxContainer/changer_unit/Dexterity" unique_id=500958484]
+layout_mode = 2
+text = "Ловкость:"
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/left/HBoxContainer/changer_unit/Dexterity" unique_id=296724872]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Ловкость..."
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="excerpt" type="VBoxContainer" parent="CanvasLayer/left/HBoxContainer/changer_unit" unique_id=1544444521]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/left/HBoxContainer/changer_unit/excerpt" unique_id=1780712998]
+layout_mode = 2
+text = "Выдержка:"
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/left/HBoxContainer/changer_unit/excerpt" unique_id=1899845022]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Выдержка..."
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/left/HBoxContainer/changer_unit" unique_id=39172441]
+layout_mode = 2
+
+[node name="add" type="Button" parent="CanvasLayer/left/HBoxContainer/changer_unit" unique_id=668991205]
+layout_mode = 2
+text = "Добавить"
+
+[node name="gen_name" type="MarginContainer" parent="CanvasLayer" unique_id=574164563 node_paths=PackedStringArray("gen_but")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("7_anra8")
+gen_but = NodePath("Button")
+
+[node name="Button" type="Button" parent="CanvasLayer/gen_name" unique_id=1368020711]
+layout_mode = 2
+text = "Новое имя
+"

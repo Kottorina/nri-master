@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://hu7q48w1ls3g"]
+
+[ext_resource type="Script" uid="uid://b81yjbnsronyf" path="res://Scene/MainScene/parse_open_data.gd" id="1_5xe81"]
+[ext_resource type="Script" uid="uid://ctnmpthmp6thk" path="res://Scene/gen_name.gd" id="1_q3oln"]
+[ext_resource type="Script" uid="uid://deqookntnmo4b" path="res://Scene/MainScene/midle.gd" id="2_pd4rm"]
+[ext_resource type="Script" uid="uid://ulnlcyfc2c1y" path="res://Scene/MainScene/enemy_list_manager.gd" id="4_jdgfs"]
+[ext_resource type="Script" uid="uid://bstklcenhodu5" path="res://Scene/MainScene/enemy_generator.gd" id="5_n5mlf"]
+[ext_resource type="Theme" uid="uid://b5jfjfdmd6r0l" path="res://Old/base.tres" id="5_td1bq"]
+[ext_resource type="Script" uid="uid://b08p4cjstyar7" path="res://Scene/MainScene/base_list.gd" id="6_csmcm"]
+[ext_resource type="PackedScene" uid="uid://c12snpfpnullr" path="res://Scene/MainScene/unit_ui_scene.tscn" id="7_xdarn"]
+
+[node name="MainScene" type="Control" unique_id=2075305943]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=89886427]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Up" type="PanelContainer" parent="VBoxContainer" unique_id=899600987]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Up" unique_id=606898031]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Up/MarginContainer" unique_id=1064480222]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Up/MarginContainer/HBoxContainer" unique_id=571909982]
+layout_mode = 2
+text = "Type System"
+
+[node name="SystemOptionBut" type="OptionButton" parent="VBoxContainer/Up/MarginContainer/HBoxContainer" unique_id=217236697]
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "T-B-O"
+popup/item_0/id = 0
+
+[node name="OpenBut" type="Button" parent="VBoxContainer/Up/MarginContainer/HBoxContainer" unique_id=34018766]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Open"
+
+[node name="Button" type="Button" parent="VBoxContainer/Up/MarginContainer/HBoxContainer" unique_id=559349744 node_paths=PackedStringArray("gen_but")]
+layout_mode = 2
+text = "GenName"
+script = ExtResource("1_q3oln")
+gen_but = NodePath(".")
+
+[node name="ParseOpenData" type="Node" parent="VBoxContainer/Up" unique_id=1904336616 node_paths=PackedStringArray("system_option_but", "open_but", "game_ui_container")]
+script = ExtResource("1_5xe81")
+system_option_but = NodePath("../MarginContainer/HBoxContainer/SystemOptionBut")
+open_but = NodePath("../MarginContainer/HBoxContainer/OpenBut")
+cvs_path = "C:\\dew\\game_project\\NriMaster\\Tbo - enemy_weapon.csv"
+game_ui_container = NodePath("../../MainGame")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1658834309]
+layout_mode = 2
+
+[node name="MainGame" type="PanelContainer" parent="VBoxContainer" unique_id=968138210 node_paths=PackedStringArray("EnemyListManager", "EnemyGenerator")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_pd4rm")
+EnemyListManager = NodePath("EnemyListManager")
+EnemyGenerator = NodePath("../EnemyGenerator")
+
+[node name="EnemyListManager" type="MarginContainer" parent="VBoxContainer/MainGame" unique_id=49941574 node_paths=PackedStringArray("enemy_list_but", "add_but", "enemy_generator")]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("4_jdgfs")
+enemy_list_but = NodePath("VBoxContainer/EnemyListBut")
+add_but = NodePath("VBoxContainer/AddButton")
+enemy_generator = NodePath("../../EnemyGenerator")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MainGame/EnemyListManager" unique_id=518268346]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MainGame/EnemyListManager/VBoxContainer" unique_id=821361123]
+layout_mode = 2
+text = "Add New Enemy"
+
+[node name="EnemyListBut" type="OptionButton" parent="VBoxContainer/MainGame/EnemyListManager/VBoxContainer" unique_id=1397731180]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="VBoxContainer/MainGame/EnemyListManager/VBoxContainer" unique_id=2114123947]
+layout_mode = 2
+text = "Add"
+
+[node name="ExistsUnitManager" type="MarginContainer" parent="VBoxContainer/MainGame" unique_id=532517344 node_paths=PackedStringArray("base_parent", "UnitListContainer")]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("5_td1bq")
+theme_override_constants/margin_right = 10
+script = ExtResource("6_csmcm")
+main_cell = ExtResource("7_xdarn")
+base_parent = NodePath("ScrollContainer/VBoxContainer")
+UnitListContainer = NodePath("ScrollContainer/VBoxContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MainGame/ExistsUnitManager" unique_id=1820942414]
+layout_mode = 2
+size_flags_horizontal = 0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MainGame/ExistsUnitManager/ScrollContainer" unique_id=1523482810]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="EnemyGenerator" type="Node" parent="VBoxContainer" unique_id=698790898 node_paths=PackedStringArray("exists_unit_manager")]
+script = ExtResource("5_n5mlf")
+exists_unit_manager = NodePath("../MainGame/ExistsUnitManager")

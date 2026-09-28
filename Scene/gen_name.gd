@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Control
 
 @export var gen_but : Button
 func _ready() -> void:

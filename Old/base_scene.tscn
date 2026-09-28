@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://jlo4cnvn31pf"]
 
-[ext_resource type="Theme" uid="uid://b5jfjfdmd6r0l" path="res://base.tres" id="1_57xsf"]
-[ext_resource type="Script" uid="uid://b08p4cjstyar7" path="res://base_list.gd" id="2_oqo0w"]
-[ext_resource type="Script" uid="uid://oup3dotujcdx" path="res://presset_loader.gd" id="2_qcxwf"]
-[ext_resource type="Resource" uid="uid://bbgainajvok48" path="res://pressets/base_list.tres" id="3_2puwf"]
-[ext_resource type="PackedScene" uid="uid://c12snpfpnullr" path="res://main_list_cell.tscn" id="3_21qnn"]
-[ext_resource type="Script" uid="uid://kj4hbxn7gx17" path="res://changer_unit.gd" id="4_vjcsa"]
-[ext_resource type="Script" uid="uid://ctnmpthmp6thk" path="res://gen_name.gd" id="7_anra8"]
+[ext_resource type="Theme" uid="uid://b5jfjfdmd6r0l" path="res://Old/base.tres" id="1_57xsf"]
+[ext_resource type="Script" uid="uid://b08p4cjstyar7" path="res://Scene/MainScene/base_list.gd" id="2_oqo0w"]
+[ext_resource type="Script" uid="uid://oup3dotujcdx" path="res://Old/presset_loader.gd" id="2_qcxwf"]
+[ext_resource type="Resource" uid="uid://bbgainajvok48" path="res://Old/pressets/base_list.tres" id="3_2puwf"]
+[ext_resource type="PackedScene" uid="uid://c12snpfpnullr" path="res://Scene/MainScene/unit_ui_scene.tscn" id="3_21qnn"]
+[ext_resource type="Script" uid="uid://kj4hbxn7gx17" path="res://Old/changer_unit.gd" id="4_vjcsa"]
+[ext_resource type="Script" uid="uid://ctnmpthmp6thk" path="res://Scene/gen_name.gd" id="7_anra8"]
 
 [node name="BaseScene" type="Node2D" unique_id=811347420]
 

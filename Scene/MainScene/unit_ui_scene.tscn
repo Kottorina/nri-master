@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://c12snpfpnullr"]
+
+[ext_resource type="Script" uid="uid://b3i8xntp403ii" path="res://Old/main_list_cell.gd" id="1_14k5v"]
+[ext_resource type="Theme" uid="uid://dnayb1p6chlt0" path="res://Old/base_main_list.tres" id="1_q2dss"]
+
+[node name="main_list_cell" type="MarginContainer" unique_id=477535060 node_paths=PackedStringArray("name_", "hp_", "strong_", "dexterity_", "stamina_", "experience_", "weapon_cont", "weapon_del_but", "weapon_name_lab", "weapon_type_lab", "weapon_distance_lab", "weapon_radius_effect_lab", "get_damage_but", "armor_cont", "armor_del_but", "GetDamageResistBut", "damage_", "delete_but")]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -461.0
+offset_top = -21.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_q2dss")
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+script = ExtResource("1_14k5v")
+name_ = NodePath("VBoxContainer/UnitData/name/NameLab")
+hp_ = NodePath("VBoxContainer/UnitData/hp/HpLab")
+strong_ = NodePath("VBoxContainer/UnitData/Strength/StrengthLab")
+dexterity_ = NodePath("VBoxContainer/UnitData/Dexterity/DexterityLab")
+stamina_ = NodePath("VBoxContainer/UnitData/Stamina/StaminaLab")
+experience_ = NodePath("VBoxContainer/UnitData/Experience/ExperienceLab")
+weapon_cont = NodePath("VBoxContainer/WeaponData")
+weapon_del_but = NodePath("VBoxContainer/WeaponData/del")
+weapon_name_lab = NodePath("VBoxContainer/WeaponData/Name/NameLab")
+weapon_type_lab = NodePath("VBoxContainer/WeaponData/Type/TypeLab")
+weapon_distance_lab = NodePath("VBoxContainer/WeaponData/Distance/DistanceLab")
+weapon_radius_effect_lab = NodePath("VBoxContainer/WeaponData/RadiusEffect/RadiusEffectLab")
+get_damage_but = NodePath("VBoxContainer/WeaponData/GetDamage")
+armor_cont = NodePath("VBoxContainer/ArmorData")
+armor_del_but = NodePath("VBoxContainer/ArmorData/del")
+GetDamageResistBut = NodePath("VBoxContainer/ArmorData/GetArmor")
+damage_ = NodePath("VBoxContainer/UnitData/DamageLineEdit")
+delete_but = NodePath("VBoxContainer/UnitData/del")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1049705771]
+layout_mode = 2
+
+[node name="UnitData" type="HBoxContainer" parent="VBoxContainer" unique_id=1217559841]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 1
+
+[node name="name" type="VBoxContainer" parent="VBoxContainer/UnitData" unique_id=2078237081]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/UnitData/name" unique_id=1221810932]
+layout_mode = 2
+text = "Имя:"
+horizontal_alignment = 1
+
+[node name="NameLab" type="Label" parent="VBoxContainer/UnitData/name" unique_id=1833843850]
+layout_mode = 2
+
+[node name="VSeparator7" type="VSeparator" parent="VBoxContainer/UnitData" unique_id=1131242601]
+layout_mode = 2
+
+[node name="hp" type="VBoxContainer" parent="VBoxContainer/UnitData" unique_id=1548283362]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/UnitData/hp" unique_id=132539401]
+layout_mode = 2
+text = "Хп:"
+horizontal_alignment = 1
+
+[node name="HpLab" type="Label" parent="VBoxContainer/UnitData/hp" unique_id=161077504]
+layout_mode = 2
+
+[node name="VSeparator6" type="VSeparator" parent="VBoxContainer/UnitData" unique_id=1213562083]
+layout_mode = 2
+
+[node name="Strength" type="VBoxContainer" parent="VBoxContainer/UnitData" unique_id=40029998]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/UnitData/Strength" unique_id=1416564577]
+layout_mode = 2
+text = "Сила:"
+horizontal_alignment = 1
+
+[node name="StrengthLab" type="Label" parent="VBoxContainer/UnitData/Strength" unique_id=1019070860]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator4" type="VSeparator" parent="VBoxContainer/UnitData" unique_id=550361633]
+layout_mode = 2
+
+[node name="Dexterity" type="VBoxContainer" parent="VBoxContainer/UnitData" unique_id=1421932183]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/UnitData/Dexterity" unique_id=386601931]
+layout_mode = 2
+text = "Ловкость:"
+horizontal_alignment = 1
+
+[node name="DexterityLab" type="Label" parent="VBoxContainer/UnitData/Dexterity" unique_id=410028352]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator5" type="VSeparator" parent="VBoxContainer/UnitData" unique_id=1351612165]
+layout_mode = 2
+
+[node name="Stamina" type="VBoxContainer" parent="VBoxContainer/UnitData" unique_id=2048099006]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/UnitData/Stamina" unique_id=1870542260]
+layout_mode = 2
+text = "Выдержка:"
+horizontal_alignment = 1
+
+[node name="StaminaLab" type="Label" parent="VBoxContainer/UnitData/Stamina" unique_id=725971475]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/UnitData" unique_id=316471779]
+layout_mode = 2
+
+[node name="Experience" type="VBoxContainer" parent="VBoxContainer/UnitData" unique_id=1100721833]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/UnitData/Experience" unique_id=1776492346]
+layout_mode = 2
+text = "Опыт:"
+horizontal_alignment = 1
+
+[node name="ExperienceLab" type="Label" parent="VBoxContainer/UnitData/Experience" unique_id=171892466]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/UnitData" unique_id=1680471565]
+layout_mode = 2
+
+[node name="DamageLineEdit" type="LineEdit" parent="VBoxContainer/UnitData" unique_id=1887817436]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Damage..."
+expand_to_text_length = true
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/UnitData" unique_id=864683441]
+layout_mode = 2
+
+[node name="del" type="Button" parent="VBoxContainer/UnitData" unique_id=1492540542]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Удалить"
+
+[node name="WeaponData" type="HBoxContainer" parent="VBoxContainer" unique_id=105502256]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Name" type="VBoxContainer" parent="VBoxContainer/WeaponData" unique_id=978585951]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/WeaponData/Name" unique_id=675637568]
+layout_mode = 2
+text = "Name:"
+
+[node name="NameLab" type="Label" parent="VBoxContainer/WeaponData/Name" unique_id=1581146487]
+layout_mode = 2
+
+[node name="Type" type="VBoxContainer" parent="VBoxContainer/WeaponData" unique_id=811179420]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/WeaponData/Type" unique_id=1233453227]
+layout_mode = 2
+text = "Type:"
+
+[node name="TypeLab" type="Label" parent="VBoxContainer/WeaponData/Type" unique_id=829413545]
+layout_mode = 2
+
+[node name="Distance" type="VBoxContainer" parent="VBoxContainer/WeaponData" unique_id=2031592621]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/WeaponData/Distance" unique_id=1385107528]
+layout_mode = 2
+text = "Distance:"
+
+[node name="DistanceLab" type="Label" parent="VBoxContainer/WeaponData/Distance" unique_id=142859903]
+layout_mode = 2
+
+[node name="RadiusEffect" type="VBoxContainer" parent="VBoxContainer/WeaponData" unique_id=1888477856]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/WeaponData/RadiusEffect" unique_id=2013189448]
+layout_mode = 2
+text = "Radius Effect:"
+
+[node name="RadiusEffectLab" type="Label" parent="VBoxContainer/WeaponData/RadiusEffect" unique_id=357715435]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/WeaponData" unique_id=434542781]
+layout_mode = 2
+
+[node name="GetDamage" type="Button" parent="VBoxContainer/WeaponData" unique_id=12971123]
+layout_mode = 2
+text = "Получить Урон"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/WeaponData" unique_id=536675160]
+layout_mode = 2
+
+[node name="del" type="Button" parent="VBoxContainer/WeaponData" unique_id=1163320543]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Удалить"
+
+[node name="ArmorData" type="HBoxContainer" parent="VBoxContainer" unique_id=1729017303]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="GetArmor" type="Button" parent="VBoxContainer/ArmorData" unique_id=1480112834]
+layout_mode = 2
+text = "Получить Резист"
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/ArmorData" unique_id=877546880]
+layout_mode = 2
+
+[node name="del" type="Button" parent="VBoxContainer/ArmorData" unique_id=334971335]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Удалить"
